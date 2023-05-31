@@ -12,3 +12,7 @@ def initialRead_state(filename):
        initialState = [list(line.strip()) for line in lines]
        return initialState
        """
+    with open("input_1.txt", 'r') as file:
+        lines = file.readlines()
+    initialState = [list(line.strip()) for line in lines]
+    return initialState
