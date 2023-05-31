@@ -12,7 +12,7 @@ def initialRead_state(filename):
        initialState = [list(line.strip()) for line in lines]
        return initialState
        """
-    with open("input_2.txt", 'r') as file:
+    with open("input_3.txt", 'r') as file:
         lines = file.readlines()
     initialState = [list(line.strip()) for line in lines]
     return initialState
@@ -60,13 +60,13 @@ def update_state(grid_display):
         new_grid_display.append(new_row)
     return new_grid_display
 
-def Conway(input_2):
+def Conway(input_3):
     """
     Args:
     filename (str): The path to a text file containing the initial state.
     Returns: None
     """
-    initialState = initialRead_state(input_2)
+    initialState = initialRead_state(input_3)
     state_updated = update_state(initialState)
     n = len(initialState)
     textfile_updated = f"{n}x{n}_updated.txt"
@@ -75,4 +75,4 @@ def Conway(input_2):
             file.write(''.join(row) + '\n')
     print(f"The updated state has been saved to {textfile_updated}.")
 
-Conway("input_2.txt")
+Conway("input_3.txt")
