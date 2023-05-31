@@ -16,3 +16,15 @@ def initialRead_state(filename):
         lines = file.readlines()
     initialState = [list(line.strip()) for line in lines]
     return initialState
+
+def neighboursCounting(grid_display, i, j):
+    """ Updates the status of a grid display based on the Game of Life rules.
+
+            Args: grid_display (list): A list of lists representing the current state of the grid display.
+                                     Each inner list represents a grid display row.
+                                     The characters in each row are saved as distinct inner list components.
+                                     The grid display can include the characters '*' to denote live cells
+                                     and '-' to represent dead cells.
+
+            Returns: list: The updated status of the grid display after applying the Game of Life rules.
+            """
