@@ -59,3 +59,18 @@ def update_state(grid_display):
                     new_row.append('-')
         new_grid_display.append(new_row)
     return new_grid_display
+
+def Conway(input_1):
+    """
+    Args:
+    filename (str): The path to a text file containing the initial state.
+    Returns: None
+    """
+    initialState = initialRead_state(input_1)
+    state_updated = update_state(initialState)
+    n = len(initialState)
+    textfile_updated = f"{n}x{n}_updated.txt"
+    with open(textfile_updated, 'w') as file:
+        for row in state_updated:
+            file.write(''.join(row) + '\n')
+    print(f"The updated state has been saved to {textfile_updated}.")
