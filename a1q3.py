@@ -19,7 +19,6 @@ def initialRead_state(filename):
 
 def neighboursCounting(grid_display, i, j):
     """ Updates the status of a grid display based on the Game of Life rules.
-
             Args: grid_display (list): A list of lists representing the current state of the grid display.
                                      Each inner list represents a grid display row.
                                      The characters in each row are saved as distinct inner list components.
@@ -28,3 +27,15 @@ def neighboursCounting(grid_display, i, j):
 
             Returns: list: The updated status of the grid display after applying the Game of Life rules.
             """
+    neighbours = []
+    rows, cols = len(grid_display), len(grid_display[0])
+    if i > 0:
+        neighbours.append(grid_display[i - 1][j])
+    if i < rows - 1:
+        neighbours.append(grid_display[i + 1][j])
+    if j > 0:
+        neighbours.append(grid_display[i][j - 1])
+    if j < cols - 1:
+        neighbours.append(grid_display[i][j + 1])
+    return neighbours
+
