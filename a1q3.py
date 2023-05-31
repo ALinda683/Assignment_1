@@ -39,3 +39,23 @@ def neighboursCounting(grid_display, i, j):
         neighbours.append(grid_display[i][j + 1])
     return neighbours
 
+def update_state(grid_display):
+
+    new_grid_display = []
+    for i, row in enumerate(grid_display):
+        new_row = []
+        for j, cell in enumerate(row):
+            neighbours = neighboursCounting(grid_display, i, j)
+            surviving_neighbours = neighbours.count('*')
+            if cell == '*':
+                if surviving_neighbours < 2 or surviving_neighbours > 3:
+                    new_row.append('-')
+                else:
+                    new_row.append('*')
+            else:
+                if surviving_neighbours == 3:
+                    new_row.append('*')
+                else:
+                    new_row.append('-')
+        new_grid_display.append(new_row)
+    return new_grid_display
